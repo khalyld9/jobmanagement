@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 
 export type Status = 'To Do' | 'In Progress' | 'Complete'
 export type Priority = 'Low' | 'Medium' | 'High'
-export interface Employee { id: string; name: string; role: string; tone: string }
+export interface Employee { id: string; name: string; role: string; tone: string; photo: string }
 export interface Job { id: string; title: string; notes: string; employeeId: string; dueDate: string; priority: Priority; status: Status }
 
 export const STATUSES: Status[] = ['To Do', 'In Progress', 'Complete']
 export const PRIORITIES: Priority[] = ['Low', 'Medium', 'High']
 export const EMPLOYEES: Employee[] = [
-  { id: 'e1', name: 'Amara Okafor', role: 'Project Lead', tone: 'bg-indigo-100 text-indigo-700' },
-  { id: 'e2', name: 'Diego Ramos', role: 'Field Technician', tone: 'bg-emerald-100 text-emerald-700' },
-  { id: 'e3', name: 'Priya Nair', role: 'Designer', tone: 'bg-sky-100 text-sky-700' },
-  { id: 'e4', name: 'Tomas Berg', role: 'Coordinator', tone: 'bg-amber-100 text-amber-800' },
+  { id: 'e1', name: 'Amara Okafor', role: 'Project Lead', tone: 'bg-black text-white', photo: 'https://randomuser.me/api/portraits/women/44.jpg' },
+  { id: 'e2', name: 'Diego Ramos', role: 'Field Technician', tone: 'bg-zinc-100 text-zinc-900', photo: 'https://randomuser.me/api/portraits/men/32.jpg' },
+  { id: 'e3', name: 'Priya Nair', role: 'Designer', tone: 'bg-white text-zinc-950', photo: 'https://randomuser.me/api/portraits/women/68.jpg' },
+  { id: 'e4', name: 'Tomas Berg', role: 'Coordinator', tone: 'bg-zinc-200 text-zinc-900', photo: 'https://randomuser.me/api/portraits/men/75.jpg' },
 ]
 
 export const initials = (n: string) => n.split(' ').map(p => p[0]).join('')
