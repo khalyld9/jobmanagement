@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@theme { --font-sans: "Plus Jakarta Sans", system-ui, sans-serif; }
+body { background:#f3f2f9; color:#1e1b3a; }
+:focus-visible { outline:2px solid #4f46e5; outline-offset:2px; }
+@keyframes pop { from { opacity:0; transform:translateY(8px) scale(.98) } to { opacity:1; transform:none } }
+.pop { animation: pop .18s ease-out; }
+@media (prefers-reduced-motion: reduce) { .pop { animation:none } }
