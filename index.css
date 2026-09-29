@@ -1,7 +1,31 @@
 @import "tailwindcss";
-@theme { --font-sans: "Plus Jakarta Sans", system-ui, sans-serif; }
-body { background:#f3f2f9; color:#1e1b3a; }
-:focus-visible { outline:2px solid #4f46e5; outline-offset:2px; }
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+}
+:root {
+  color-scheme: light;
+  --app-bg:#f4f4f5;
+  --app-text:#09090b;
+  --icon-gradient-start:#d4d4d8;
+  --icon-gradient-mid:#71717a;
+  --icon-gradient-end:#050505;
+}
+.dark {
+  color-scheme: dark;
+  --app-bg:#09090b;
+  --app-text:#fafafa;
+  --icon-gradient-start:#ffffff;
+  --icon-gradient-mid:#d4d4d8;
+  --icon-gradient-end:#71717a;
+}
+body { background:var(--app-bg); color:var(--app-text); font-family:"Inter", system-ui, sans-serif; font-weight:400; }
+:focus-visible { outline:2px solid currentColor; outline-offset:2px; }
 @keyframes pop { from { opacity:0; transform:translateY(8px) scale(.98) } to { opacity:1; transform:none } }
+@keyframes chart-draw { to { stroke-dashoffset:0; } }
+@keyframes chart-fade { from { opacity:0; } to { opacity:1; } }
 .pop { animation: pop .18s ease-out; }
-@media (prefers-reduced-motion: reduce) { .pop { animation:none } }
+.chart-line { stroke-dasharray:1; stroke-dashoffset:1; animation:chart-draw .55s ease-out forwards; }
+.chart-area, .chart-fade-in { opacity:0; animation:chart-fade .35s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) { .pop, .chart-line, .chart-area, .chart-fade-in { animation:none; stroke-dashoffset:0; opacity:1; } }
